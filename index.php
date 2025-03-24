@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/styleHome.css">
 </head>
 <body>
     <!-- Preloader -->
@@ -29,7 +29,7 @@
                     <li><a href="#gallery">Gallery</a></li>
                     <li><a href="#faq">FAQ</a></li>
                     <li><a href="#contact">Contact</a></li>
-                    <li><a href="login.php" class="nav-btn">Login</a></li>
+                    <li><a href="admin/login.php" class="nav-btn">Login</a></li>
                 </ul>
                 <div class="hamburger">
                     <span class="bar"></span>
