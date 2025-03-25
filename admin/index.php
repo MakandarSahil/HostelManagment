@@ -20,7 +20,7 @@ $totalStudents = 100;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard - Hostel Management</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="/hostelManagment/assets/css/styleSidebar.css">
+    <link rel="stylesheet" href="/hostelManagment/assets/css/styleAdmin.css">
     <style>
         .dashboard-container {
             display: flex;

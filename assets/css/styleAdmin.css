@@ -128,3 +128,26 @@ body {
       display: inline;
   }
 }
+
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+table th, table td {
+  padding: 10px;
+  border: 1px solid #ccc;
+  text-align: left;
+}
+table th {
+  background-color: #3949ab;
+  color: white;
+}
+.btn-add {
+  background-color: #3949ab;
+  color: #fff;
+  padding: 8px 15px;
+  border-radius: 5px;
+  text-decoration: none;
+}

@@ -11,7 +11,7 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['role'] !== 'admin') {
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Student Logs - Hostel Management</title>
+  <title>View Bookings - Hostel Management</title>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
   <link rel="stylesheet" href="/hostelManagment/assets/css/styleAdmin.css">
   <style>
@@ -36,30 +36,30 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['role'] !== 'admin') {
         margin-top: 20px;
     }
 
-    th, td {
+    table th, table td {
         padding: 12px;
         border: 1px solid #ccc;
         text-align: left;
     }
 
-    th {
+    table th {
         background-color: #3949ab;
         color: white;
     }
 
-    tr:nth-child(even) {
-        background-color: #f9f9f9;
+    table tr:nth-child(even) {
+        background-color: #f4f4f4;
     }
 
-    .action-btns a {
-        margin-right: 8px;
+    table a {
+        color: #3949ab;
         text-decoration: none;
-        font-weight: bold;
+        font-weight: 500;
     }
 
-    .approve { color: green; }
-    .return { color: orange; }
-    .pending { color: red; }
+    table a:hover {
+        text-decoration: underline;
+    }
   </style>
 </head>
 <body>
@@ -67,45 +67,45 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['role'] !== 'admin') {
     <?php include('../includes/sidebar.php'); ?>
 
     <main class="main-content">
-      <h2>Student Logs</h2>
-
-      <a href="add_log.php" class="btn-add">+ Add Manual Log</a>
-
+      <h2>Room Bookings</h2>
       <table>
         <thead>
           <tr>
+            <th>Booking ID</th>
             <th>Student Name</th>
-            <th>Room No</th>
-            <th>Out Time</th>
-            <th>In Time</th>
-            <th>Purpose</th>
+            <th>Room Number</th>
+            <th>Booking Date</th>
+            <th>Start Date</th>
+            <th>End Date</th>
             <th>Status</th>
             <th>Action</th>
           </tr>
         </thead>
         <tbody>
-          <!-- Replace with PHP foreach after DB integration -->
+          <!-- Sample data clearly provided -->
           <tr>
+            <td>BK101</td>
             <td>Rahul Kumar</td>
             <td>101</td>
-            <td>2025-03-25 09:00 AM</td>
-            <td>2025-03-25 05:00 PM</td>
-            <td>College Visit</td>
-            <td class="pending">Pending</td>
-            <td class="action-btns">
-              <a href="update_log.php?action=approve&id=1" class="approve">Approve</a>
-              <a href="update_log.php?action=returned&id=1" class="return">Mark Returned</a>
+            <td>2025-03-25</td>
+            <td>2025-03-27</td>
+            <td>2025-06-30</td>
+            <td>Pending</td>
+            <td>
+              <a href="#">Approve</a> | <a href="#">Cancel</a>
             </td>
           </tr>
+
           <tr>
+            <td>BK102</td>
             <td>Sneha Patil</td>
             <td>105</td>
-            <td>2025-03-26 10:00 AM</td>
-            <td>2025-03-26 04:00 PM</td>
-            <td>Medical Checkup</td>
-            <td style="color: green;">Approved</td>
-            <td class="action-btns">
-              <a href="update_log.php?action=returned&id=2" class="return">Mark Returned</a>
+            <td>2025-03-20</td>
+            <td>2025-04-01</td>
+            <td>2025-07-01</td>
+            <td>Approved</td>
+            <td>
+              <a href="#">View</a> | <a href="#">Cancel</a>
             </td>
           </tr>
         </tbody>
