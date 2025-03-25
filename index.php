@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,6 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="assets/css/styleHome.css">
 </head>
+
 <body>
     <!-- Preloader -->
     <div class="preloader">
@@ -29,7 +31,7 @@
                     <li><a href="#gallery">Gallery</a></li>
                     <li><a href="#faq">FAQ</a></li>
                     <li><a href="#contact">Contact</a></li>
-                    <li><a href="admin/login.php" class="nav-btn">Login</a></li>
+                    <li><a href="Auth/login.php" class="nav-btn">Login</a></li>
                 </ul>
                 <div class="hamburger">
                     <span class="bar"></span>
@@ -154,42 +156,42 @@
                 </div>
                 <div class="gallery-grid">
                     <div class="gallery-item" data-category="rooms">
-                        <img src="/placeholder.svg?height=300&width=400" alt="Standard Room">
+                        <img src="https://images.unsplash.com/photo-1554415707-6e8cfc93fe23" alt="Standard Room">
                         <div class="gallery-overlay">
                             <h3>Standard Room</h3>
                             <a href="#" class="gallery-icon"><i class="fas fa-plus"></i></a>
                         </div>
                     </div>
                     <div class="gallery-item" data-category="rooms">
-                        <img src="/placeholder.svg?height=300&width=400" alt="Deluxe Room">
+                        <img src="https://images.unsplash.com/photo-1554415707-6e8cfc93fe23" alt="Deluxe Room">
                         <div class="gallery-overlay">
                             <h3>Deluxe Room</h3>
                             <a href="#" class="gallery-icon"><i class="fas fa-plus"></i></a>
                         </div>
                     </div>
                     <div class="gallery-item" data-category="dining">
-                        <img src="/placeholder.svg?height=300&width=400" alt="Dining Hall">
+                        <img src="https://images.unsplash.com/photo-1554415707-6e8cfc93fe23" alt="Dining Hall">
                         <div class="gallery-overlay">
                             <h3>Dining Hall</h3>
                             <a href="#" class="gallery-icon"><i class="fas fa-plus"></i></a>
                         </div>
                     </div>
                     <div class="gallery-item" data-category="campus">
-                        <img src="/placeholder.svg?height=300&width=400" alt="Campus View">
+                        <img src="https://images.unsplash.com/photo-1554415707-6e8cfc93fe23" alt="Campus View">
                         <div class="gallery-overlay">
                             <h3>Campus View</h3>
                             <a href="#" class="gallery-icon"><i class="fas fa-plus"></i></a>
                         </div>
                     </div>
                     <div class="gallery-item" data-category="activities">
-                        <img src="/placeholder.svg?height=300&width=400" alt="Sports Activities">
+                        <img src="https://images.unsplash.com/photo-1531415074968-036ba1b575da" alt="Sports Activities">
                         <div class="gallery-overlay">
                             <h3>Sports Activities</h3>
                             <a href="#" class="gallery-icon"><i class="fas fa-plus"></i></a>
                         </div>
                     </div>
                     <div class="gallery-item" data-category="campus">
-                        <img src="/placeholder.svg?height=300&width=400" alt="Study Area">
+                        <img src="https://images.unsplash.com/photo-1571260899304-425eee4c7efc" alt="Study Area">
                         <div class="gallery-overlay">
                             <h3>Study Area</h3>
                             <a href="#" class="gallery-icon"><i class="fas fa-plus"></i></a>
@@ -198,6 +200,7 @@
                 </div>
             </div>
         </section>
+
 
         <!-- FAQ Section -->
         <section id="faq" class="faq">
@@ -357,7 +360,7 @@
     </main>
 
     <footer>
-      
+
         <div class="footer-bottom">
             <div class="container">
                 <p>&copy; 2024 DKTE College Hostel. All Rights Reserved.</p>
@@ -389,7 +392,7 @@
         // Mobile Menu Toggle
         const hamburger = document.querySelector('.hamburger');
         const navMenu = document.querySelector('.nav-menu');
-        
+
         hamburger.addEventListener('click', () => {
             hamburger.classList.toggle('active');
             navMenu.classList.toggle('active');
@@ -414,15 +417,15 @@
 
         // Active Navigation Link
         const sections = document.querySelectorAll('section[id]');
-        
+
         function scrollActive() {
             const scrollY = window.pageYOffset;
-            
+
             sections.forEach(current => {
                 const sectionHeight = current.offsetHeight;
                 const sectionTop = current.offsetTop - 100;
                 const sectionId = current.getAttribute('id');
-                
+
                 if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
                     document.querySelector('.nav-menu a[href*=' + sectionId + ']').classList.add('active');
                 } else {
@@ -430,23 +433,23 @@
                 }
             });
         }
-        
+
         window.addEventListener('scroll', scrollActive);
 
         // FAQ Accordion
         const faqItems = document.querySelectorAll('.faq-item');
-        
+
         faqItems.forEach(item => {
             const question = item.querySelector('.faq-question');
-            
+
             question.addEventListener('click', () => {
                 const isActive = item.classList.contains('active');
-                
+
                 // Close all FAQ items
                 faqItems.forEach(faqItem => {
                     faqItem.classList.remove('active');
                 });
-                
+
                 // Open clicked item if it wasn't active
                 if (!isActive) {
                     item.classList.add('active');
@@ -457,19 +460,19 @@
         // Gallery Filter
         const filterBtns = document.querySelectorAll('.filter-btn');
         const galleryItems = document.querySelectorAll('.gallery-item');
-        
+
         filterBtns.forEach(btn => {
             btn.addEventListener('click', () => {
                 // Remove active class from all buttons
                 filterBtns.forEach(filterBtn => {
                     filterBtn.classList.remove('active');
                 });
-                
+
                 // Add active class to clicked button
                 btn.classList.add('active');
-                
+
                 const filter = btn.getAttribute('data-filter');
-                
+
                 galleryItems.forEach(item => {
                     if (filter === 'all' || item.getAttribute('data-category') === filter) {
                         item.style.display = 'block';
@@ -486,71 +489,63 @@
         const dots = document.querySelectorAll('.dot');
         const prevBtn = document.querySelector('.testimonial-prev');
         const nextBtn = document.querySelector('.testimonial-next');
-        
+
         function showSlide(index) {
-            // Hide all slides
-            testimonialCards.forEach(card => {
-                card.style.display = 'none';
-            });
-            
-            // Remove active class from all dots
-            dots.forEach(dot => {
-                dot.classList.remove('active');
-            });
-            
-            // Show current slide and activate corresponding dot
-            testimonialCards[index].style.display = 'block';
-            dots[index].classList.add('active');
+            let slides = document.getElementsByClassName("slide");
+            if (slides[index]) {
+                slides[index].style.display = "block";
+            }
         }
-        
+
+
         // Initialize slider
         showSlide(currentSlide);
-        
-        // Previous button click
-        prevBtn.addEventListener('click', () => {
-            currentSlide--;
-            if (currentSlide < 0) {
-                currentSlide = testimonialCards.length - 1;
-            }
-            showSlide(currentSlide);
-        });
-        
-        // Next button click
-        nextBtn.addEventListener('click', () => {
-            currentSlide++;
-            if (currentSlide >= testimonialCards.length) {
-                currentSlide = 0;
-            }
-            showSlide(currentSlide);
-        });
-        
-        // Dot click
-        dots.forEach((dot, index) => {
-            dot.addEventListener('click', () => {
-                currentSlide = index;
-                showSlide(currentSlide);
-            });
-        });
 
-        // Back to Top Button
-        const backToTopBtn = document.querySelector('.back-to-top');
-        
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 300) {
-                backToTopBtn.classList.add('show');
-            } else {
-                backToTopBtn.classList.remove('show');
-            }
-        });
-        
-        backToTopBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-        
+        // Previous button click
+        // prevBtn.addEventListener('click', () => {
+        //     currentSlide--;
+        //     if (currentSlide < 0) {
+        //         currentSlide = testimonialCards.length - 1;
+        //     }
+        //     showSlide(currentSlide);
+        // });
+
+        // Next button click
+        // nextBtn.addEventListener('click', () => {
+        //     currentSlide++;
+        //     if (currentSlide >= testimonialCards.length) {
+        //         currentSlide = 0;
+        //     }
+        //     showSlide(currentSlide);
+        // });
+
+        // // Dot click
+        // dots.forEach((dot, index) => {
+        //     dot.addEventListener('click', () => {
+        //         currentSlide = index;
+        //         showSlide(currentSlide);
+        //     });
+        // });
+
+        // // Back to Top Button
+        // const backToTopBtn = document.querySelector('.back-to-top');
+
+        // window.addEventListener('scroll', () => {
+        //     if (window.scrollY > 300) {
+        //         backToTopBtn.classList.add('show');
+        //     } else {
+        //         backToTopBtn.classList.remove('show');
+        //     }
+        // });
+
+        // backToTopBtn.addEventListener('click', (e) => {
+        //     e.preventDefault();
+        //     window.scrollTo({
+        //         top: 0,
+        //         behavior: 'smooth'
+        //     });
+        // });
     </script>
 </body>
+
 </html>

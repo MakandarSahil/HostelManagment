@@ -1,3 +1,5 @@
+
+
 /* ===== GOOGLE FONTS ===== */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
@@ -331,7 +333,7 @@ header.sticky {
 /* ===== HERO SECTION ===== */
 .hero {
     height: 100vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/placeholder.svg?height=1080&width=1920') no-repeat center center/cover;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://source.unsplash.com/1920x1080/?hostel') no-repeat center center/cover;
     position: relative;
     display: flex;
     align-items: center;
@@ -569,7 +571,7 @@ header.sticky {
 
 /* ===== VIRTUAL TOUR SECTION ===== */
 .virtual-tour {
-    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('/placeholder.svg?height=1080&width=1920') no-repeat center center/cover;
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('https://source.unsplash.com/1920x1080/?hostel') no-repeat center center/cover;
     padding: 6rem 0;
     color: #fff;
 }
@@ -961,7 +963,7 @@ header.sticky {
 
 /* ===== CTA SECTION ===== */
 .cta {
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/placeholder.svg?height=1080&width=1920') no-repeat center center/cover;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://source.unsplash.com/1920x1080/?hostel') no-repeat center center/cover;
     padding: 6rem 0;
     text-align: center;
     color: #fff;
