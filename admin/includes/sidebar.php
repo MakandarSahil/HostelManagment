@@ -1,9 +1,14 @@
-<div class="sidebar">
+<button id="sidebarToggle" class="toggle-btn">
+  <i class="fas fa-bars"></i>
+</button>
+
+<div class="sidebar" id="sidebar">
   <div class="sidebar-header">
     <div class="sidebar-icon">
       <i class="fas fa-building" style="color: white;"></i>
     </div>
     <h3>Hostel Admin</h3>
+    <!-- <button id="closeSidebar" class="close-btn">&times;</button> -->
   </div>
   <ul class="sidebar-menu">
     <li>
@@ -38,3 +43,16 @@
     </li>
   </ul>
 </div>
+
+<style>
+  /*  */
+</style>
+
+<script>
+  document.getElementById('sidebarToggle').addEventListener('click', function () {
+    document.getElementById('sidebar').classList.toggle('open');
+  });
+  // document.getElementById('closeSidebar').addEventListener('click', function () {
+  //   document.getElementById('sidebar').classList.remove('open');
+  // });
+</script>

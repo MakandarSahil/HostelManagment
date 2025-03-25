@@ -21,50 +21,7 @@ $totalStudents = 100;
     <title>Admin Dashboard - Hostel Management</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/hostelManagment/assets/css/styleAdmin.css">
-    <style>
-        .dashboard-container {
-            display: flex;
-        }
-
-        .sidebar {
-            width: 250px;
-            min-height: 100vh;
-        }
-
-        .main-content {
-            flex-grow: 1;
-            padding: 20px;
-            margin-left: 250px; /* Adjust according to sidebar width */
-        }
-
-        .dashboard-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .dashboard-stats {
-            display: flex;
-            gap: 20px;
-            margin-top: 20px;
-        }
-
-        .stat-card {
-            flex: 1;
-            background-color: #f4f7fa;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .stat-card i {
-            font-size: 2em;
-            color: #3949ab;
-        }
-    </style>
+    <link rel="stylesheet" href="/hostelManagment/assets/css/sidebar.css">
 </head>
 <body>
     <div class="dashboard-container">
