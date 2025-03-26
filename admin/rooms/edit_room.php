@@ -4,22 +4,30 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['role'] !== 'admin') {
     header("Location: /hostelManagment/Auth/login.php");
     exit;
 }
-include('../includes/header.php');
-include('../includes/sidebar.php');
-$room_id = $_GET['id'];
-?>
 
-<div class="main-content">
-    <h2>Edit Room <?= htmlspecialchars($room_id); ?></h2>
-    <form method="POST" action="">
-        <label>Room Number:</label>
-        <input type="text" name="room_no" value="<?= htmlspecialchars($room_id); ?>" required>
+include('../../includes/db_connect.php');
 
-        <label>Capacity:</label>
-        <input type="number" name="capacity" required>
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $room_id = intval($_POST['room_id']);
+    $room_no = trim($_POST['room_no']);
+    $capacity = intval($_POST['capacity']);
+    $status = trim($_POST['status']);
 
-        <button type="submit">Save Changes</button>
-    </form>
-</div>
+    $stmt = $conn->prepare("UPDATE HostelRooms SET room_no = ?, capacity = ?, status = ? WHERE room_id = ?");
+    $stmt->bind_param("sisi", $room_no, $capacity, $status, $room_id);
 
-<?php include('../includes/footer.php'); ?>
+    if ($stmt->execute()) {
+        $_SESSION['success'] = "Room updated successfully!";
+    } else {
+        $_SESSION['error'] = "Failed to update room: " . $conn->error;
+    }
+
+    $stmt->close();
+    $conn->close();
+    header("Location: view_room.php");
+    exit;
+} else {
+    $_SESSION['error'] = "Invalid request.";
+    header("Location: view_room.php");
+    exit;
+}
