@@ -70,7 +70,7 @@ include('../../includes/db_connect.php');
         }
 
         .btn-dlt {
-            background-color:rgb(171, 57, 57);
+            background-color: rgb(171, 57, 57);
             color: white;
             padding: 10px 15px;
             border: none;
@@ -147,11 +147,13 @@ include('../../includes/db_connect.php');
             <input type="text" id="searchInput" placeholder="Search..." onkeyup="searchTable()">
 
             <?php if (isset($_SESSION['success'])): ?>
-                <p style="color: green;"><?php echo $_SESSION['success']; unset($_SESSION['success']); ?></p>
+                <p style="color: green;"><?php echo $_SESSION['success'];
+                                            unset($_SESSION['success']); ?></p>
             <?php endif; ?>
 
             <?php if (isset($_SESSION['error'])): ?>
-                <p style="color: red;"><?php echo $_SESSION['error']; unset($_SESSION['error']); ?></p>
+                <p style="color: red;"><?php echo $_SESSION['error'];
+                                        unset($_SESSION['error']); ?></p>
             <?php endif; ?>
 
             <div class="table-container">
@@ -160,13 +162,33 @@ include('../../includes/db_connect.php');
                         <tr>
                             <th class="sortable">Room No</th>
                             <th class="sortable">Capacity</th>
+                            <th>Remaining Capacity</th>
                             <th class="sortable">Status</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php
-                        $sql = "SELECT r.room_id, r.room_no, r.capacity, r.status FROM HostelRooms r";
+                        // $sql = "SELECT r.room_id, r.room_no, r.capacity, r.status FROM HostelRooms r";
+                        //                 $sql = "SELECT r.room_id, r.room_no, r.capacity, 
+                        //        IF(COUNT(s.student_id) > 0, 'Occupied', 'Available') AS status,
+                        //        h.name AS hostel_name
+                        // FROM HostelRooms r
+                        // JOIN Hostels h ON r.hostel_id = h.hostel_id
+                        // LEFT JOIN Student s ON r.room_id = s.room_id
+                        // GROUP BY r.room_id";
+                        $sql = "SELECT 
+        r.room_id, 
+        r.room_no, 
+        r.capacity, 
+        COUNT(s.student_id) AS occupied_count,
+        (r.capacity - COUNT(s.student_id)) AS remaining_capacity,
+        IF(COUNT(s.student_id) > 0, 'Occupied', 'Available') AS status
+    FROM HostelRooms r
+    LEFT JOIN Student s ON r.room_id = s.room_id
+    GROUP BY r.room_id";
+
+
                         $result = $conn->query($sql);
 
                         if ($result->num_rows > 0) {
@@ -174,6 +196,7 @@ include('../../includes/db_connect.php');
                                 echo "<tr>
                                         <td>" . htmlspecialchars($row['room_no']) . "</td>
                                         <td>" . htmlspecialchars($row['capacity']) . "</td>
+                                        <td>" . htmlspecialchars($row['remaining_capacity']) . "</td>
                                         <td>" . htmlspecialchars($row['status']) . "</td>
                                         <td>
                                             <button class=\"btn-edt\" onclick=\"openEditModal('{$row['room_id']}', '{$row['room_no']}', '{$row['capacity']}', '{$row['status']}')\">Edit</button> |
@@ -316,4 +339,5 @@ include('../../includes/db_connect.php');
 
     <script src="/hostelManagment/assets/js/sidebar.js"></script>
 </body>
+
 </html>
