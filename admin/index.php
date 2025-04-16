@@ -6,15 +6,25 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['role'] !== 'admin') {
     exit;
 }
 
-// Dashboard statistics (replace these placeholders with actual database queries)
-$totalRooms = 50;
-$occupiedRooms = 35;
-$pendingBookings = 10;
-$totalStudents = 100;
+include('../includes/db_connect.php');
+
+// Fetch total rooms
+$totalRooms = $conn->query("SELECT COUNT(*) FROM HostelRooms")->fetch_row()[0];
+
+// Fetch occupied rooms (rooms with students assigned)
+$occupiedRooms = $conn->query("SELECT COUNT(DISTINCT room_id) FROM Student")->fetch_row()[0];
+
+// Fetch pending bookings
+$pendingBookings = $conn->query("SELECT COUNT(*) FROM RoomBooking WHERE status = 'Pending'")->fetch_row()[0];
+
+// Fetch total students
+$totalStudents = $conn->query("SELECT COUNT(*) FROM Student")->fetch_row()[0];
+
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,6 +33,7 @@ $totalStudents = 100;
     <link rel="stylesheet" href="/hostelManagment/assets/css/styleAdmin.css">
     <link rel="stylesheet" href="/hostelManagment/assets/css/sidebar.css">
 </head>
+
 <body>
     <div class="dashboard-container">
         <!-- Sidebar Include -->
@@ -75,4 +86,5 @@ $totalStudents = 100;
         </main>
     </div>
 </body>
+
 </html>
