@@ -186,7 +186,7 @@ include('../../includes/db_connect.php');
                     <button type='submit' class='action-btn'>Mark as Returned</button>
                 </form>";
                                 } else {
-                                    echo "Returned";
+                                    echo "N/A";
                                 }
 
                                 echo "</td></tr>";

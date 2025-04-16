@@ -30,9 +30,9 @@
       </a>
     </li>
     <li>
-      <a href="/hostelManagment/admin/student_logs/logs.php">
+      <a href="/hostelManagment/admin/students/students.php">
         <i class="fas fa-clipboard-list"></i>
-        <span>Student Logs</span>
+        <span>Students</span>
       </a>
     </li>
     <li>
