@@ -41,6 +41,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             } elseif ($user['role'] == 'student') {
                 header("Location: /hostelManagment/student/dashboard.php");
                 exit;
+            } elseif ($user['role'] == 'parent') {
+                header("Location: /hostelManagment/parents/dashboard.php");
+                exit;
             }
         } else {
             $error = "Incorrect Password";
@@ -53,27 +56,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <title>Login - Hostel Management</title>
-  <link rel="stylesheet" href="../assets/css/styleLogin.css">
+    <meta charset="UTF-8">
+    <title>Login - Hostel Management</title>
+    <link rel="stylesheet" href="../assets/css/styleLogin.css">
 </head>
+
 <body>
 
-<div class="login-container">
-  <form action="login.php" method="POST" class="login-form">
-    <h2>User Login</h2>
+    <div class="login-container">
+        <form action="login.php" method="POST" class="login-form">
+            <h2>User Login</h2>
 
-    <?php if(isset($error)) { ?>
-      <p class="error"><?php echo htmlspecialchars($error); ?></p>
-    <?php } ?>
+            <?php if (isset($error)) { ?>
+                <p class="error"><?php echo htmlspecialchars($error); ?></p>
+            <?php } ?>
 
-    <input type="email" name="email" placeholder="Email" required>
-    <input type="password" name="password" placeholder="Password" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="password" name="password" placeholder="Password" required>
 
-    <button type="submit">Login</button>
-  </form>
-</div>
+            <button type="submit">Login</button>
+        </form>
+    </div>
 
 </body>
+
 </html>
